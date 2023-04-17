@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // Import components
 import Navbar from './components/navigation/Navbar'
-import ProjectSection from './components/media/ProjectSection'
+import Homepage from './components/Homepage'
 
 const App = () => {
   useEffect(() => {
@@ -15,10 +15,10 @@ const App = () => {
   })
 
   return (
-    <div>
+    <main>
       <Navbar />
-      <ProjectSection />
-    </div>
+      <Homepage />
+    </main>
   )
 }
 
