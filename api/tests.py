@@ -35,7 +35,9 @@ class GetAllProjectsTest(TestCase):
         Project_Asset.objects.create(
             project=commercial_project,
             content_url='http://example.com/commercial.jpg',
-            content_description='Commercial Project Photo'
+            content_description='Commercial Project Photo',
+            content_1_url='http://example.com/commercial.jpg',
+            content_2_description='Commercial Project Photo'
         )
 
     def test_get_all_projects(self):
