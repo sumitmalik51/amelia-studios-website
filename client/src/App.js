@@ -10,7 +10,7 @@ const App = () => {
     getData()
   })
 
-  return <h1>Hello World</h1>
+  return <h1>Frontend & Backend Connected</h1>
 }
 
 export default App
