@@ -36,3 +36,6 @@ class Project_Asset(models.Model):
     content_9_url = models.CharField(max_length=255, blank=True)
     content_9_description = models.TextField(blank=True)
 
+    # Class for how the Project Object will look on DB: 
+    def __str__(self):
+        return f"{self.project}"
