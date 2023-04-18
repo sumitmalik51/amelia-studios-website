@@ -7,6 +7,7 @@ const Homepage = () => {
   const [errors, setErrors] = useState(false)
   const [loading, setLoading] = useState(true)
 
+
   // accessing Express API to get all collaborations
   useEffect(() => {
     const getProjects = async () => {
@@ -26,12 +27,16 @@ const Homepage = () => {
   return (
     <>
       <div className='homepage'>
+      <div className='project-wrapper-1'>
+        <span>test</span>
+        <img src='https://uc44904a465449f98a5c9490bc78.previews.dropboxusercontent.com/p/thumb/AB34EH0SVgllSEUzGYgJrVPqa1Luzw6h99gL_yydMs0IdBjuMg0WVPAOvSW4etC5sz3kqUzV87fDp2DoNNtqAmbPj805Cp8ysYgELcQxUJGJFmv19EpYtI-1ZW9LMyx_zZyToFgHlx4trLeMTx7uk38JwGafW1XlO8HASeOZv4wjutAcB3FiJDuUmlWfma3HxZKgsm2X1CkdksyLkFyhqCDoa_NNtkYL14kdoyLeTCK0uGFa7tsSm8cqgUT70cDD6WrGWvaUayBD666U3rbk-BMsAAIEcciAYbi5OhNiBUn2KIPSBzcu1iW3-KcHB8tIReu4LNrjl74_aHH1GCUvMROvM0iStPxrGNfaKMNHrjJy8fwNGEtolkXkiw4fdNzbn8UdJdZlZ40cCAKgW22Jyt7A0k27h6gjiCCwCRGSA-zQ56ux9cUORdGSe0KwBvnwWP1sAkp-nXWZlTJgdcs-E6Es/p.png' alt="Example" />
+      </div>
         {loading ?
           <span>Loading...</span>
           :
           errors ?
             <span>Collaborations could not load. Please try again later!</span>
-            :
+            :           
             <div className='project-wrapper'>
               {projects.map(project => {
                 const { id, content_url, content_description, client_name, project_title, project_type, description } = project
