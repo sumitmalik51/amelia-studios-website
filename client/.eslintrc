@@ -25,7 +25,7 @@
     "camelcase": [
       "error",
       {
-        "properties": "never"
+        "allow": ["^_[a-z]+(_[a-z]+)*$"]
       }
     ],
     "func-call-spacing": [
