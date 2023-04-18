@@ -35,6 +35,12 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    background-color: $primary-color;  
+    color: $base-text-color-highlight;                      
+    padding: 20px 50px; 
+    h4, h5, p {
+      color: $base-text-color-highlight;                      
+    }    
   }
 }
 
