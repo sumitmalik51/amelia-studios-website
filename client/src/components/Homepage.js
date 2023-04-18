@@ -25,24 +25,33 @@ const Homepage = () => {
 
   return (
     <>
-      <div className='general-project-wrapper'>
-        {projects.map(project => {
-          const { id, content_url, content_description, client_name, project_title, project_type, description } = project
-          console.log(project)
-          return (
-            <div className='project-container' key={id}>
-              <div className='swiper-wrapper'>
-                <img src={content_url} alt={`${content_description}`} />
-              </div>
-              <div className='project-info'>
-                <h4>{client_name}</h4>
-                <h5>{project_title}</h5>
-                <p>{project_type} - {description}</p>
-              </div>
-            </div>
-          )
+      <div className='homepage'>
+        {loading ?
+          <span>Loading...</span>
+          :
+          errors ?
+            <span>Collaborations could not load. Please try again later!</span>
+            :
+            <div className='project-wrapper'>
+              {projects.map(project => {
+                const { id, content_url, content_description, client_name, project_title, project_type, description } = project
+                console.log(project)
+                return (
+                  <div className='project-container' key={id}>
+                    <div className='swiper-wrapper'>
+                      <img src={content_url} alt={`${content_description}`} />
+                    </div>
+                    <div className='project-info'>
+                      <h4>{client_name}</h4>
+                      <h5>{project_title}</h5>
+                      <p>{project_type} - {description}</p>
+                    </div>
+                  </div>
+                )
 
-        })}
+              })}
+            </div>
+        }
       </div>
     </>
   )
@@ -79,12 +88,13 @@ export default Homepage
 
 //   return (
 //     <div className='project-wrapper'>
-//       {loading ?
-//         <span>Loading...</span>
-//         :
-//         errors ?
-//           <span>Collaborations could not load. Please try again later!</span>
-//           :
+// {
+//   loading ?
+//     <span>Loading...</span>
+//     :
+//     errors ?
+//       <span>Collaborations could not load. Please try again later!</span>
+//       :
 //           <div className='project-container'>
 //             {projects.map(project => {
 //               const { id, url, description } = project
