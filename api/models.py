@@ -14,6 +14,7 @@ class Project(models.Model):
         'music', 'Music'), ('commercial', 'Commercial')])
     client_name = models.CharField(max_length=100)
     project_title = models.CharField(max_length=100)
+    project_order = models.PositiveIntegerField(null=True, blank=True, unique=True)
     project_type = models.CharField(max_length=100)
     description = models.TextField()
 
@@ -28,6 +29,7 @@ class Project_Asset(models.Model):
     content_url = models.URLField(validators=[URLValidator()])
     content_url_number = models.PositiveIntegerField(null=False, blank=False)
     content_description = models.TextField(max_length=500)
+    asset_order = models.PositiveIntegerField(null=True, blank=True, unique=True)
 
     # Method for how the Project Object will look on DB:
     def __str__(self):
