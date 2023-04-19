@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-// import { MusicMenuItems, CommercialMenuItems } from '../data/MenuItems'
-import Logo from '../../assets/logos/logo-title.png'
+import Logo from '../assets/logos/logo-title.png'
+import { Link } from "react-router-dom";
 
-
-function Navbar() {
+const Header = () => {
   const [showMusicDropdown, setShowMusicDropdown] = useState(false)
   const [showCommercialsDropdown, setShowCommercialsDropdown] = useState(false)
 
@@ -18,9 +17,11 @@ function Navbar() {
   }
 
   return (
-    <nav className="navbar">
+    <header className="navbar">
       <div className="navbar-left">
-        <img src={Logo} alt="Logo" className="navbar-logo" />
+        <Link to="/" className="navbar-contact">
+          <img src={Logo} alt="Logo" className="navbar-logo" />
+        </Link>
         <div className="navbar-title" onClick={handleMusicClick}>
           Music
           {showMusicDropdown && (
@@ -46,13 +47,13 @@ function Navbar() {
       </div>
       <div className="navbar-right">
         <div className="navbar-title">
-          <a href="#" className="navbar-contact">
-          Contact
-          </a>
+          <Link to="/contact" className="navbar-contact">
+            Contact
+          </Link>
         </div>
       </div>
-    </nav>
+    </header>
   )
 }
 
-export default Navbar
+export default Header

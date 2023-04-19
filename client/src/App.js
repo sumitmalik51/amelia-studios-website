@@ -2,12 +2,14 @@ import { useEffect } from 'react'
 import axios from 'axios'
 
 // Import react-router-dom
-// import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // Import components
-// import Navbar from './components/navigation/Navbar'
-// import Homepage from './components/Homepage'
-import LoadingPage from './components/pages/LoadingPage'
+import Homepage from '../src/pages/Homepage'
+import Contact from './pages/Contact'
+// import Loading from '../src/components/Loading'
+import Header from '../src/components/Header'
+
 
 const App = () => {
   useEffect(() => {
@@ -16,13 +18,17 @@ const App = () => {
       console.log(data)
     }
     getData()
-  })
+  }, [])
 
   return (
-    <main>
-      <LoadingPage />
-      {/* <Homepage /> */}
-    </main>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Homepage />} />
+          <Route path='/contact' element={<Contact />} />
+
+        </Routes>
+      </BrowserRouter>
   )
 }
 

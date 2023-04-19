@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import SwiperCore, { Keyboard, Navigation } from "swiper";
 
-import Navbar from '../navigation/Navbar'
+import Header from '../components/Header'
 
 
 SwiperCore.use([Keyboard, Navigation]);
@@ -23,23 +23,16 @@ const Homepage = () => {
     setIsOpen(!isOpen);
   }
 
-
-  // const handleProjectTitleClick = (project) => {
-  //   setSelectedProject(project);
-  // }
-
-  // const handleBannerClick = () => {
-  //   setSelectedProject(null);
-  // }
-
   useEffect(() => {
     const getProjects = async () => {
       try {
         const { data } = await axios.get('/api/projects/')
         setProjects(data)
+        setLoading(false)
       } catch (err) {
         console.log(err)
         setErrors(true)
+        setLoading(false)
       }
       setLoading(false)
     }
@@ -48,7 +41,7 @@ const Homepage = () => {
 
   return (
     <>
-    <Navbar />
+    <Header />
       <div className='project-wrapper'>
         {loading ?
           <span>Loading...</span>
@@ -77,15 +70,9 @@ const Homepage = () => {
                         spaceBetween={ 0}
                         loop={ true}
                         speed={900}
-                        // onSlideChange={() => console.log('slide change')}
-                        // onSwiper={(swiper) => console.log(swiper)}
                         keyboard={{
                           enabled: true
                         }}
-                        // navigation={{
-                        //   nextEl: ".swiper-button-next",
-                        //   prevEl: ".swiper-button-prev"
-                        // }}
                         modules={ [Keyboard, Navigation]}
                         >
                         {/*-- React SwiperSlide Component which shows project images --*/ }
@@ -118,36 +105,31 @@ const Homepage = () => {
 
                       <button className="project__close" onClick={toggleOpen}>
                       </button>
-                      <h2>{client_name}</h2>
-                      <h3>{project_title}</h3>
-                      <p>{project_type}</p>
-                      <p>{description}</p>
-                    </div>
-
-
-
-                {/* <div>
-                      <span
-                        className="client_name"
-                        onClick={() => handleProjectTitleClick(project)}
-                      >
-
+                      <h4>
+                      <span style={{fontWeight: 'bold'}}>
+                      CLIENT:&nbsp;&nbsp;&nbsp;
+                      </span> 
+                      {client_name}
+                      </h4>
+                      <h5>
+                      <span style={{fontWeight: 'bold'}}>
+                      PROJECT:&nbsp;&nbsp;&nbsp;&nbsp;
                       </span>
-                      {selectedProject && selectedProject.id === id &&
-                        <div className="banner">
-                          {/* Display banner with project details */}
-                {/* <h4>{client_name}</h4>
-                          <h5>{project_title}</h5>
-                          <p>{project_type} - {description}</p>
-                          <div
-                            className="banner-close"
-                            onClick={handleBannerClick}
-                          >
-                            Close
-                          </div>
-                        </div>
-                      }
-                    </div> */}
+                      {project_title}
+                      </h5>
+                      <p> 
+                      <span style={{fontWeight: 'bold'}}>
+                      INFO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </span>
+                      {description}
+                      </p>
+                      <p> 
+                      <span style={{fontWeight: 'bold'}}>
+                      ROLE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </span>
+                      {project_type}
+                      </p>
+                    </div>
                   </div>
                 )
               })}

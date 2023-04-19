@@ -5,14 +5,14 @@
 $base-font-size: 1rem;
 $base-line-height: 1.5;
 $base-font-family: 'Inter', sans-serif;
-$base-text-color: $secondary-color; // base font color
+$base-text-color: $primary-color; // base font color
 $base-text-color-highlight: $secondary-color;
 
 $spacing-extra-small: 2px;
 $spacing-small: 10px;
 $shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
-$hover-text-color: rgb(136, 188, 214);
+$hover-text-color: $secondary-color ;
 
 // Headings
 $heading-font-family: $base-font-family;
