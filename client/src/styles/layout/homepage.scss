@@ -1,35 +1,29 @@
 .project-wrapper {
   // position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
   margin: 0 auto;
   width: 100%; 
   height: 100vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+  background: $primary-color;
 
-  // .swiper-wrapper {
-  //   padding: 10px;
-  //   position: relative;
-  //   max-width: 2400px;
-  //   min-height: 100vh;
-  //   border: 8px solid $primary-color;
-  //   display: flex;
-
-  //   img {
-  //     background: lightblue;
-  //     width: 100%;
-  //     height: auto;
-  //     object-fit: cover;
-  //     object-position: 50%;
-  //     overflow: hidden;
-  //     transition: 0.3s;
-  //     opacity: 1;
-  //   }
-  // }
+  .client_name {
+    // Add styles for the client name element here
+    // For example:
+    z-index: 2;
+    position: relative;
+    bottom: 80px;
+    left: 50px;
+    text-transform: uppercase;
+    font-size: $heading-4-font-size;
+    font-weight: $heading-font-weight;
+    cursor: pointer;
+  }
 
   .project-info {
     display: flex;
@@ -41,8 +35,65 @@
     h4, h5, p {
       color: $base-text-color-highlight;                      
     }    
+    overflow: hidden;
   }
 }
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+}
+
+.banner {
+  display: none; // Hide the banner by default
+  position: relative;
+  z-index: 2;
+  background-color: rgba($primary-color, 0.75); // Set the background color with opacity
+  color: $base-text-color-highlight;
+  padding: 20px;
+  transform: translateY(100%); // Initially move the banner off-screen
+  transition: transform 0.3s ease-in-out; // Add smooth transition for animation
+  cursor: pointer; // Add cursor pointer to indicate clickability
+
+  &.active {
+    transform: translateY(0); // Move the banner to show it
+  }
+
+  h4, h5, p {
+    margin: 0;
+  }
+
+  .banner-close {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+}
+
+
+
+
 
 // .project-wrapper-1 {
 //   height: 80vh;
@@ -71,42 +122,39 @@
 //   height: 100%;
 // }
 
-// .swiper-button-next,
-// .swiper-button-prev {
-//   color: #fff;
-//   font-size: 24px;
-//   position: absolute;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
-
-// .swiper-button-next {
-//   right: 20px;
-// }
-
-// .swiper-button-prev {
-//   left: 20px;
-// }
-
-.swiper {
-  width: 100%;
-  height: 100%;
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.swiper-button-next {
+  right: 20px;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.swiper-button-prev {
+  left: 20px;
 }
+
+  // .swiper-wrapper {
+  //   padding: 10px;
+  //   position: relative;
+  //   max-width: 2400px;
+  //   min-height: 100vh;
+  //   border: 8px solid $primary-color;
+  //   display: flex;
+
+  //   img {
+  //     background: lightblue;
+  //     width: 100%;
+  //     height: auto;
+  //     object-fit: cover;
+  //     object-position: 50%;
+  //     overflow: hidden;
+  //     transition: 0.3s;
+  //     opacity: 1;
+  //   }
+  // }
