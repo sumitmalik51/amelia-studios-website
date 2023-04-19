@@ -5,6 +5,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import SwiperCore, { Keyboard, Navigation } from "swiper";
 
+import Navbar from '../navigation/Navbar'
+
+
 SwiperCore.use([Keyboard, Navigation]);
 
 const Homepage = () => {
@@ -45,6 +48,7 @@ const Homepage = () => {
 
   return (
     <>
+    <Navbar />
       <div className='project-wrapper'>
         {loading ?
           <span>Loading...</span>
@@ -65,12 +69,16 @@ const Homepage = () => {
                       <Swiper
                         // className="swiper-wrapper"
                         key={id}
-                        navigation={true}
+                        navigation={{ // Specify the navigation prop with options
+                          nextEl: '.swiper-button-next', // CSS class for the "Next" arrow
+                          prevEl: '.swiper-button-prev', // CSS class for the "Previous" arrow
+                        }}
                         slidesPerView={1}
-                        spaceBetween={0}
-                        loop={true}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)}
+                        spaceBetween={ 0}
+                        loop={ true}
+                        speed={900}
+                        // onSlideChange={() => console.log('slide change')}
+                        // onSwiper={(swiper) => console.log(swiper)}
                         keyboard={{
                           enabled: true
                         }}
@@ -78,9 +86,9 @@ const Homepage = () => {
                         //   nextEl: ".swiper-button-next",
                         //   prevEl: ".swiper-button-prev"
                         // }}
-                        modules={[Keyboard, Navigation]}
-                      >
-                        {/*-- React SwiperSlide Component which shows project images --*/}
+                        modules={ [Keyboard, Navigation]}
+                        >
+                        {/*-- React SwiperSlide Component which shows project images --*/ }
                         {assets.map(asset => (
                           <SwiperSlide key={asset.url}>
                             <div>
@@ -88,16 +96,26 @@ const Homepage = () => {
                             </div>
                           </SwiperSlide>
                         ))}
-                      </Swiper>
-                    </div>
-                    {/* Display client_name in bottom left corner & load project info banner on click */}
+
+                      <div className="swiper-buttons">
+                        <button className="swiper-button-prev">
+                          Previous
+                        </button>
+                        <button className="swiper-button-next">
+                          Next
+                        </button>
+                      </div>
+
+                    </Swiper>
+                  </div>
+                    {/* Display client_name in bottom left corner & load project info banner on click */ }
 
                     <button className="project__title" onClick={toggleOpen}>
                       {client_name}
                     </button>
 
                     <div className={isOpen ? 'open project__info-container' : 'project__info-container'}>
-                      
+
                       <button className="project__close" onClick={toggleOpen}>
                       </button>
                       <h2>{client_name}</h2>
@@ -108,7 +126,7 @@ const Homepage = () => {
 
 
 
-                    {/* <div>
+                {/* <div>
                       <span
                         className="client_name"
                         onClick={() => handleProjectTitleClick(project)}
@@ -118,7 +136,7 @@ const Homepage = () => {
                       {selectedProject && selectedProject.id === id &&
                         <div className="banner">
                           {/* Display banner with project details */}
-                    {/* <h4>{client_name}</h4>
+                {/* <h4>{client_name}</h4>
                           <h5>{project_title}</h5>
                           <p>{project_type} - {description}</p>
                           <div
@@ -133,9 +151,9 @@ const Homepage = () => {
                   </div>
                 )
               })}
-            </div>
-        }
       </div>
+        }
+    </div >
     </>
   )
 }

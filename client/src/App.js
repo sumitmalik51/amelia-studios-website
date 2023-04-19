@@ -1,9 +1,13 @@
 import { useEffect } from 'react'
 import axios from 'axios'
 
+// Import react-router-dom
+// import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 // Import components
-import Navbar from './components/navigation/Navbar'
-import Homepage from './components/Homepage'
+// import Navbar from './components/navigation/Navbar'
+// import Homepage from './components/Homepage'
+import LoadingPage from './components/pages/LoadingPage'
 
 const App = () => {
   useEffect(() => {
@@ -16,8 +20,8 @@ const App = () => {
 
   return (
     <main>
-      <Navbar />
-      <Homepage />
+      <LoadingPage />
+      {/* <Homepage /> */}
     </main>
   )
 }

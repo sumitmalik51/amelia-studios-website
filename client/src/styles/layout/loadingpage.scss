@@ -1,0 +1,21 @@
+.loading-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%; //needs breakpoints for big screen width
+  transform: translate(-50%, -50%);
+
+  span {
+    padding-top: 40px; // Adjust the margin as needed
+    text-align: center;
+  }
+}
+
+.loading-gif{
+  width: 50%;
+  height: 50%;
+
+}
