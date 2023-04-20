@@ -1,18 +1,24 @@
 import React from "react";
+import Logo from '../assets/logos/logo-contact.png'
+
 
 const Contact = () => {
   // Render contact page content
   return (
-    <section className='about-wrapper'>
-    <h1>contact page: </h1>
-    <p> 
-bio
-hello@ameliastudios.co.uk 
-13 Berwick Street, Soho, W1F 0PW
-+447817678382
-    </p>
-  </section>
-)
+    <div className='contact-wrapper'>
+      <div className='contact-container'>
+        <div className='contact-text'>
+          <h4>
+            BIO<br />
+            E: hello@ameliastudios.co.uk<br />
+            T: +447817678382<br />
+            13 Berwick Street<br /> Soho, W1F 0PW<br />
+          </h4>
+          <img src={Logo} alt='as-logo' className='contact-logo'></img>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 

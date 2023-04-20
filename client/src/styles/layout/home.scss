@@ -28,6 +28,8 @@
     left: 10px;
     text-transform: uppercase;
     font-size: $heading-3-font-size;
+    font-weight: 500;
+    letter-spacing: $spacing-extra-small;
     color: $base-text-color;
     z-index: 11;
     padding: 30px;
@@ -40,6 +42,8 @@
   .project-container {
     position: relative;
     overflow: hidden;
+    border: 2px solid black;
+
   }
 
   .project-info {

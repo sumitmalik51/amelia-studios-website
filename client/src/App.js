@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // Import components
 import Homepage from '../src/pages/Homepage'
 import Contact from './pages/Contact'
-// import Loading from '../src/components/Loading'
+import Loading from '../src/components/Loading'
 import Header from '../src/components/Header'
 
 
@@ -26,6 +26,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/loading' element={<Loading />} />
 
         </Routes>
       </BrowserRouter>
