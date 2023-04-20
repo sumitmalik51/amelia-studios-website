@@ -3,12 +3,12 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import SwiperCore, { Keyboard, Navigation } from "swiper";
+import SwiperCore, { Navigation } from "swiper";
 
 import Header from '../components/Header'
 
 
-SwiperCore.use([Keyboard, Navigation]);
+SwiperCore.use([Navigation]);
 
 const Homepage = () => {
 
@@ -68,12 +68,13 @@ const Homepage = () => {
                         }}
                         slidesPerView={1}
                         spaceBetween={ 0}
+                        effect={"fade"}
                         loop={ true}
                         speed={900}
-                        keyboard={{
-                          enabled: true
-                        }}
-                        modules={ [Keyboard, Navigation]}
+                        // keyboard={{
+                        //   enabled: true
+                        // }}
+                        modules={ [Navigation]}
                         >
                         {/*-- React SwiperSlide Component which shows project images --*/ }
                         {assets.map(asset => (

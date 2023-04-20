@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Homepage from '../src/pages/Homepage'
 import Contact from './pages/Contact'
 import Loading from '../src/components/Loading'
-import Header from '../src/components/Header'
+// import Header from '../src/components/Header'
 
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
 
   return (
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/contact' element={<Contact />} />
