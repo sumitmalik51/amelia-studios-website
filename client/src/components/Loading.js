@@ -3,7 +3,7 @@ import giphy from '../../src/assets/loading-giphy.gif'
 
 const Loading = () => {
   // Render loading animation
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [dots, setDots] = useState('');
 
   useEffect(() => {

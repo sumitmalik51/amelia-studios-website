@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import SwiperCore, { Navigation } from "swiper";
 
 import Header from '../components/Header'
+import Loading from '../components/Loading'
 
 
 SwiperCore.use([Navigation]);
@@ -28,23 +29,29 @@ const Homepage = () => {
       try {
         const { data } = await axios.get('/api/projects/')
         setProjects(data)
-        setLoading(false)
+        // setLoading(false)
       } catch (err) {
         console.log(err)
         setErrors(true)
-        setLoading(false)
+        // setLoading(false)
       }
-      setLoading(false)
+      // setLoading(false)
     }
     getProjects()
   }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  })
 
   return (
     <>
     <Header />
       <div className='project-wrapper'>
         {loading ?
-          <span>Loading...</span>
+          <Loading />
           :
           errors ?
             <span>Projects could not load. Please try again later.</span>
