@@ -12,32 +12,38 @@ class GetAllProjectsTest(TestCase):
 
     def setUp(self):
         music_project = Project.objects.create(
-            homepage=False,
-            category='music',
+            on_homepage=0,
+            category_type=3,
             client_name='Client A',
-            title='Music Project',
-            project_type='audio',
-            description='Description for Music Project'
+            project_title='Music Project',
+            project_order=1,
+            project_type='Creative Production',
+            description='Description for Music Project',
         )
         commercial_project = Project.objects.create(
-            homepage=True,
-            category='commercial',
+            on_homepage=1,
+            category_type=4,
             client_name='Client B',
-            title='Commercial Project',
-            project_type='video',
-            description='Description for Commercial Project'
+            project_title='Commercial Project',
+            project_order=2,
+            project_type='Film Direction',
+            description='Description for Commercial Project',
         )
         Project_Asset.objects.create(
             project=music_project,
             content_url='http://example.com/music.jpg',
-            content_description='Music Project Photo'
+            content_url_number=1,
+            content_description='Music Project Photo',
+            content_orientation=6,
+            asset_order=None,
         )
         Project_Asset.objects.create(
             project=commercial_project,
             content_url='http://example.com/commercial.jpg',
+            content_url_number=1,
             content_description='Commercial Project Photo',
-            content_1_url='http://example.com/commercial.jpg',
-            content_2_description='Commercial Project Photo'
+            content_orientation=6,
+            asset_order='1',
         )
 
     def test_get_all_projects(self):

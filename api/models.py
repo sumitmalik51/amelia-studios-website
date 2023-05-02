@@ -8,30 +8,48 @@ import requests
 
 
 # Create your models here.
+
 class Project(models.Model):
-    homepage = models.BooleanField(default=False)
-    category = models.CharField(max_length=100, choices=[(
-        'music', 'Music'), ('commercial', 'Commercial')])
+    
+    # Fields:
+    on_homepage = models.PositiveSmallIntegerField(choices=[
+        ('0', 'Yes'), 
+        ('1', 'No / Not Yet')
+        ], null=False, default=None)
+    category_type = models.PositiveSmallIntegerField(choices=[
+        ('3', 'Music'), 
+        ('4', 'Commercial')
+        ], null=False, default=None)
     client_name = models.CharField(max_length=100)
     project_title = models.CharField(max_length=100)
-    project_order = models.PositiveIntegerField(null=True, blank=True, unique=True)
+    project_order = models.PositiveSmallIntegerField(null=True, blank=True, unique=True)
     project_type = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.CharField(max_length=300)
 
-    # Method for how the Project Object will look on DB:
+    # Methods:
+    # String Method for how the Project Object will read on DB:
     def __str__(self):
         return f"{self.client_name} - {self.project_title}"
+    
 
 
 class Project_Asset(models.Model):
+    
+    # Fields:
     project = models.ForeignKey(
         Project, related_name='assets', on_delete=models.CASCADE)
     content_url = models.URLField(validators=[URLValidator()])
-    content_url_number = models.PositiveIntegerField(null=False, blank=False)
-    content_description = models.TextField(max_length=500)
-    asset_order = models.PositiveIntegerField(null=True, blank=True, unique=True)
+    content_url_number = models.PositiveSmallIntegerField(null=False, blank=False) 
+    content_description = models.CharField(max_length=300)
+    content_orientation = models.PositiveSmallIntegerField(choices=[
+        ('6', 'Portrait'), 
+        ('7', 'Landscape')
+        ], null=False, default=False)
+    # asset_order = models.PositiveSmallIntegerField(null=True, blank=True, unique=True)
 
-    # Method for how the Project Object will look on DB:
+
+    # Methods: 
+    # String Method for how the Project Object will look on DB:
     def __str__(self):
         return f"{self.project} - Asset {self.content_url_number}"
     
@@ -63,7 +81,8 @@ class Project_Asset(models.Model):
     #     super().save(*args, **kwargs)
 
 
-    # Method for checking if the content_url_number field is between 1 and 10 & if not it raises ValidationError
+    # Method for checking if certain field values comply with field requirements, otherwise call a ValidationError
     def clean(self):
         if not 1 <= self.content_url_number <= 10:
             raise ValidationError('Content URL number must be between 1 and 10.')
+        
