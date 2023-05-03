@@ -6,15 +6,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // Import components
 import Homepage from '../src/pages/Homepage'
-import Contact from './pages/Contact'
-import Loading from '../src/components/Loading'
-// import Header from '../src/components/Header'
 
 
 const App = () => {
+
+  // Call on API. If you need to reorder/sort the object array, do it here first. 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/api/projects/') // * <-- replace with your endpoint
+      const { data } = await axios.get('/api/projects/') 
       console.log(data)
     }
     getData()
@@ -22,12 +21,8 @@ const App = () => {
 
   return (
       <BrowserRouter>
-        {/* <Header /> */}
         <Routes>
           <Route path='/' element={<Homepage />} />
-          <Route path='/contact' element={<Contact />} />
-          {/* <Route path='/loading' element={<Loading />} /> */}
-
         </Routes>
       </BrowserRouter>
   )

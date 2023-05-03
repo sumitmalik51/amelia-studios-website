@@ -4,7 +4,7 @@ import Logo from '../assets/logos/logo-contact.png'
 import Header from '../components/Header'
 
 
-const Contact = () => {
+const ContactPage = () => {
   // Render contact page content
   return (
     <>
@@ -27,4 +27,4 @@ const Contact = () => {
 }
 
 
-export default Contact;
+export default ContactPage;

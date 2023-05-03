@@ -47,9 +47,9 @@ const Header = () => {
       </div>
       <div className="navbar-right">
         <div className="navbar-title">
-          <Link to="/contact" className="navbar-contact">
+          {/* <Link to="/contact" className="navbar-contact"> */}
             Contact
-          </Link>
+          {/* </Link> */}
         </div>
       </div>
     </header>
