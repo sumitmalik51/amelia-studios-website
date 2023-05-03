@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from '../assets/logos/logo-title.png'
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+
+import MenuPopUp from './MenuPopUp'
 
 const Header = () => {
+
+      // Menu Modal (Pop Up)
+      const [isOpen, setIsOpen] = useState(false);
+
+      const toggleOpen = () => {
+        setIsOpen(!isOpen);
+      }
 
   return (
     <header className="navbar">
@@ -12,11 +21,16 @@ const Header = () => {
         </Link>
       </div>
       <div className="navbar__right">
-        <div className="navbar__title">
-          {/* <Link to="/contact" className="navbar-contact"> */}
-            Menu
-          {/* </Link> */}
-        </div>
+        <button className="navbar__title" onClick={toggleOpen}>
+          <span className='menu'>
+          Menu
+          </span>
+        </button>
+        <div className={isOpen ? 'open menu__info-container' : 'menu__info-container'}>
+        <button className="menu__close" onClick={toggleOpen}>
+        </button>
+        {isOpen  && <MenuPopUp />}
+      </div>
       </div>
     </header>
   )

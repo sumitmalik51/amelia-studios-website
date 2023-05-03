@@ -114,27 +114,15 @@ const Homepage = () => {
                       <button className="project__close" onClick={toggleOpen}>
                       </button>
                       <h4>
-                      <span style={{fontWeight: 'bold'}}>
-                      CLIENT:&nbsp;&nbsp;&nbsp;
-                      </span> 
                       {client_name}
                       </h4>
                       <h5>
-                      <span style={{fontWeight: 'bold'}}>
-                      PROJECT:&nbsp;&nbsp;&nbsp;&nbsp;
-                      </span>
                       {project_title}
                       </h5>
                       <p> 
-                      <span style={{fontWeight: 'bold'}}>
-                      INFO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      </span>
                       {description}
                       </p>
                       <p> 
-                      <span style={{fontWeight: 'bold'}}>
-                      ROLE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      </span>
                       {project_type}
                       </p>
                     </div>
