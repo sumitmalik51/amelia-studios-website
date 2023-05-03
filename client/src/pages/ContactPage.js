@@ -1,4 +1,5 @@
-import React from "react";
+// This component page acts as a modal over the homepage to prevent re-loading of assets
+
 import Logo from '../assets/logos/logo-contact.png'
 
 import Header from '../components/Header'
