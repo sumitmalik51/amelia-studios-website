@@ -20,10 +20,9 @@ $heading-font-weight: 500;
 
   $heading-1-font-size: 1.5rem;
   $heading-2-font-size: 1.4rem;
-  $heading-3-font-size: 1.15rem;
-  $heading-4-font-size: 1.25rem;
-  $heading-5-font-size: 1rem;
-  $heading-6-font-size: 0.875rem;
+  $heading-3-font-size: 1.05rem;
+  $heading-4-font-size: 1rem;
+  $heading-5-font-size: 0.875rem;
 
 
 // Body Text
@@ -62,7 +61,7 @@ body {
   color: $base-text-color; 
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
   margin-top: 0;
@@ -94,10 +93,6 @@ h4 {
 
 h5 {
   font-size: $heading-5-font-size;
-}
-
-h6 {
-  font-size: $heading-6-font-size;
 }
 
 p {

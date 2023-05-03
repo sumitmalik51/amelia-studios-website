@@ -61,6 +61,10 @@
       text-transform: uppercase;
     }
 
+    h2 {
+      padding-bottom: 10px;
+    }
+    
     p {
       max-width: 80%;
       color: $project-info-p-text;
@@ -84,11 +88,14 @@
       transform: translate(-50%, 7px) rotate(135deg);
     }
   }
-}
 
+}
 
 button {
   background: none;
   border: none;
   cursor: pointer;
+  margin: 0px 20px 0px 20px;
 }
+
+
