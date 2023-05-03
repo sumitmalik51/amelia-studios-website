@@ -19,7 +19,7 @@ const Header = () => {
       </div>
       <div className='navbar__right'>
         <button className='navbar__title' onClick={toggleOpen}>
-          <span className='menu'>Menu</span>
+          <h1 className='menu'>Menu</h1>
         </button>
         <div className={isOpen ? 'open menu__info-container' : 'menu__info-container'}>
           <button className='menu__close' onClick={toggleOpen}></button>

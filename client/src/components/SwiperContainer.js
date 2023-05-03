@@ -19,25 +19,19 @@ const SwiperContainer = ({ assets, id }) => {
       }}
       slidesPerView={1}
       spaceBetween={0}
-      effect={"fade"}
+      effect={'fade'}
       loop={true}
       speed={900}
       modules={[Navigation]}
     >
       {assets.map(asset => (
         <SwiperSlide key={asset.url}>
-          <div>
             <img src={asset.url} alt={asset.description} />
-          </div>
         </SwiperSlide>
       ))}
-      <div className="swiper-buttons">
-        <button className="swiper-button-prev">
-          Previous
-        </button>
-        <button className="swiper-button-next">
-          Next
-        </button>
+      <div className='swiper-buttons'>
+        <button className='swiper-button-prev'>Previous</button>
+        <button className='swiper-button-next'>Next</button>
       </div>
     </Swiper>
   )

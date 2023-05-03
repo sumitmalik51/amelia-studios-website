@@ -4,10 +4,10 @@ const ProjectTextPopUp = ({ isOpen, toggleOpen, clientName, projectTitle, descri
   return (
     <div className={isOpen ? 'open project__info-container' : 'project__info-container'}>
       <button className="project__close" onClick={toggleOpen}></button>
-      <h4>{clientName}</h4>
-      <h5>{projectTitle}</h5>
-      <p>{description}</p>
-      <p>{projectType}</p>
+      <h2>{clientName}</h2>
+      <h3>{projectTitle}</h3>
+      <p>{projectType}: {description}</p>
+      <p></p>
     </div>
   )
 }

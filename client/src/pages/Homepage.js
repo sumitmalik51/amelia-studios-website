@@ -34,7 +34,7 @@ const Homepage = () => {
   })
 
   return (
-    <div className='homepage__container'>
+    <main>
       <Header />
 
       {loading ?
@@ -43,13 +43,13 @@ const Homepage = () => {
         errors ?
           <span>Projects could not load. Please try again later.</span>
           :
-          <div className='project-wrapper'>
+          <div className='project__wrapper'>
             {projects.map(project => (
               <ProjectContainer key={project.id} project={project} />
             ))}
           </div>
       }
-    </div>
+    </main>
   )
 }
 
