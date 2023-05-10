@@ -31,11 +31,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    'https://ameliastudios-python-postgres-234.azurewebsites.net/',
-    ]
+ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
 # ADMINS = [('Kate', 'kate.e.oboyle@gmail.com'), ('AS', 'ameliastudios.azure@gmail.com')]
 # MANAGERS = ADMINS
