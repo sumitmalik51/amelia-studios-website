@@ -1,4 +1,4 @@
-#!/Users/kateoboyle/projects/2023/freelance/amelia-studios-website/.venv/bin/python
+#!/Users/kateoboyle/projects/2023/freelance/amelia-studios-website/.venv/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys
