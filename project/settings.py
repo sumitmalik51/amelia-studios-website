@@ -32,7 +32,9 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '*',
+    '127.0.0.1',
+    'localhost',
+    'https://ameliastudios-python-postgres-234.azurewebsites.net/',
     ]
 
 # ADMINS = [('Kate', 'kate.e.oboyle@gmail.com'), ('AS', 'ameliastudios.azure@gmail.com')]
