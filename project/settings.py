@@ -31,8 +31,14 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '.localhost',
+    'ameliastudios-python-postgres-234.azurewebsites.net',
+    ]
 
+ADMINS = [('Kate', 'kate.e.oboyle@gmail.com'), ('AS', 'ameliastudios.azure@gmail.com')]
+MANAGERS = ADMINS
 
 # Application definition
 
@@ -53,10 +59,12 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.cache.CacheMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -67,7 +75,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'client')],
-                #Look, we have added the root folder of frontend here
+                #Look, we have added the root folder & React index.html of frontend here
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -145,10 +153,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # STATIC_ROOT = BASE_DIR / 'staticfiles'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'client', 'build', 'static')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'client/build/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 
 
@@ -169,6 +178,37 @@ REST_FRAMEWORK = {
     ]
 }
 
-# MEDIA_URL = '/media/'
+#  Need to review this with a specialist. Currently stored with Memcached
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
+        "LOCATION": "127.0.0.1:8000",
+    }
+}
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#  Need to review this with a specialist. Currently stored with Memcached
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+#  Need to review this with a specialist. Currently stored with Memcached
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+            "propagate": False,
+        },
+    },
+}
