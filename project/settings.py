@@ -31,7 +31,9 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
+# ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
+
+ALLOWED_HOSTS = ['ameliastudios-python-postgres-234.azurewebsites.net']
 
 # ADMINS = [('Kate', 'kate.e.oboyle@gmail.com'), ('AS', 'ameliastudios.azure@gmail.com')]
 # MANAGERS = ADMINS
@@ -92,27 +94,38 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Default database settings for local development
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env('DBNAME'),
+#         'HOST': env('DBHOST'),
+#         'PORT': 5432,
+#         'USER': env('DBUSER'),
+#         'PASSWORD': env('DBPASS')
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DBNAME'),
-        'HOST': env('DBHOST'),
+        'NAME': env('AZURE_DBNAME'),
+        'HOST': env('AZURE_HOST'),
         'PORT': 5432,
-        'USER': env('DBUSER'),
-        'PASSWORD': env('DBPASS')
+        'USER': env('AZURE_DBUSER'),
+        'PASSWORD': env('AZURE_DBPASS')
     }
 }
 
 # Azure database settings
-if 'AZURE_HOST' in os.environ:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('AZURE_DBNAME'),
-        'USER': env('AZURE_DBUSER'),
-        'PASSWORD': env('AZURE_DBPASS'),
-        'HOST': env('AZURE_HOST'),
-        'PORT': '5432',
-    }
+# if 'AZURE_HOST' in os.environ:
+#     DATABASES['default'] = {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env('AZURE_DBNAME'),
+#         'USER': env('AZURE_DBUSER'),
+#         'PASSWORD': env('AZURE_DBPASS'),
+#         'HOST': env('AZURE_HOST'),
+#         'PORT': '5432',
+#     }
 
 # if os.environ.get('GITHUB_WORKFLOW'):
 #     DATABASES = {
