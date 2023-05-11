@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 
 # Initialise environment variables
+# from decouple import config
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -33,7 +34,7 @@ DEBUG = False
 
 # ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
-ALLOWED_HOSTS = ['ameliastudios-python-postgres-234.azurewebsites.net']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ameliastudios-python-postgres-234.azurewebsites.net']
 
 # ADMINS = [('Kate', 'kate.e.oboyle@gmail.com'), ('AS', 'ameliastudios.azure@gmail.com')]
 # MANAGERS = ADMINS
@@ -94,37 +95,37 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Default database settings for local development
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env('DBNAME'),
-#         'HOST': env('DBHOST'),
-#         'PORT': 5432,
-#         'USER': env('DBUSER'),
-#         'PASSWORD': env('DBPASS')
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('AZURE_DBNAME'),
-        'HOST': env('AZURE_HOST'),
+        'NAME': env('DBNAME'),
+        'USER': env('DBUSER'),
+        'PASSWORD': env('DBPASS'),
+        'HOST': env('DBHOST'),
         'PORT': 5432,
-        'USER': env('AZURE_DBUSER'),
-        'PASSWORD': env('AZURE_DBPASS')
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env('AZURE_DBNAME'),
+#         'HOST': env('AZURE_HOST'),
+#         'PORT': 5432,
+#         'USER': env('AZURE_DBUSER'),
+#         'PASSWORD': env('AZURE_DBPASS')
+#     }
+# }
 
 # Azure database settings
 # if 'AZURE_HOST' in os.environ:
 #     DATABASES['default'] = {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env('AZURE_DBNAME'),
-#         'USER': env('AZURE_DBUSER'),
-#         'PASSWORD': env('AZURE_DBPASS'),
-#         'HOST': env('AZURE_HOST'),
-#         'PORT': '5432',
+#         'NAME': config('AZURE_DBNAME'),
+#         'USER': config('AZURE_DBUSER'),
+#         'PASSWORD': config('AZURE_DBPASS'),
+#         'HOST': config('AZURE_HOST'),
+#         'PORT': config('AZURE_PORT', cast=int),
 #     }
 
 # if os.environ.get('GITHUB_WORKFLOW'):
