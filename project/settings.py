@@ -34,7 +34,9 @@ DEBUG = False
 
 # ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ameliastudios-python-postgres-234.azurewebsites.net']
+ALLOWED_HOSTS = ['ameliastudios-python-postgres-234.azurewebsites.net']
+
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ameliastudios-python-postgres-234.azurewebsites.net']
 
 # ADMINS = [('Kate', 'kate.e.oboyle@gmail.com'), ('AS', 'ameliastudios.azure@gmail.com')]
 # MANAGERS = ADMINS
