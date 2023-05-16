@@ -10,14 +10,20 @@ const LoadingPage = () => {
 
   useEffect(() => {
     // Start blinking dots after 1 second delay
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        setDots(prevDots => (prevDots === '....' ? '' : prevDots + '.'));
-      }, 500);
-      return () => clearInterval(interval);
-    }, 200);
-    return () => clearTimeout(timeout);
-  }, []);
+  //   const timeout = setTimeout(() => {
+  //     const interval = setInterval(() => {
+  //       setDots(prevDots => (prevDots === '....' ? '' : prevDots + '.'));
+  //     }, 500)
+  //     return () => clearInterval(interval)
+  //   }, 200);
+  //   return () => clearTimeout(timeout);
+  // }, []);
+
+    const interval = setInterval(() => {
+      setDots((prevDots) => (prevDots === '....' ? '' : prevDots + '.'))
+    }, 500)
+    return () => clearInterval(interval);
+  }, [])
 
   return (
     <div>
