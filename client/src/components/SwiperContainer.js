@@ -12,6 +12,8 @@ const SwiperContainer = ({ assets, id }) => {
 
   return (
     <Swiper
+      // direction='horizontal'
+      className='swiper-container'
       key={id}
       navigation={{
         nextEl: '.swiper-button-next',

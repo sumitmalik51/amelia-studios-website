@@ -1,20 +1,29 @@
 .project {
   &__wrapper {
-    margin: 0 auto;
-    width: 100%; 
-    // height: 100vh;
-    overflow-y: scroll;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
+    // margin: 0 auto;
+    // width: 100%; 
+    // // height: 100vh;
+    // overflow-y: scroll;
+    // overflow: auto;
+    // display: flex;
+    // flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    // overscroll-behavior-y: contain;
+    // scroll-snap-type: y mandatory;
+    height: 100vh;
+    width: 100%;
   }
 
   &__container {
     position: relative;
     overflow: hidden;
     border: 2px solid black;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    transform: translate3d(0px, 0px, 0px); 
+    transition-duration: 0ms;
+    // scroll-snap-align: center;
   }
 
   &__title {
@@ -31,6 +40,10 @@
 
     &:hover {
       color: $hover-text-color;
+    }
+
+    &.special.black {
+      color: black
     }
   }
 
@@ -97,6 +110,17 @@ button {
   border: none;
   cursor: pointer;
   margin: 0px 20px 0px 20px;
+}
+
+/* Example of how to fade our content in */
+
+.LazyLoad {
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.is-visible {
+  opacity: 1;
 }
 
 
