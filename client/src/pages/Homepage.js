@@ -24,8 +24,8 @@ const Homepage = () => {
       const { data } = await axios.get('/api/projects/')
       console.log(data)
       const filteredData = data.filter((project) => project.on_homepage === '0')
-      setCurrentProjects(filteredData.splice(0,3))
-      console.log(filteredData)
+      setCurrentProjects(filteredData.splice(0,4))
+      console.log(filteredData.splice(0,4))
       setLoading(false);
     } catch (err) {
       setErrors(true);
