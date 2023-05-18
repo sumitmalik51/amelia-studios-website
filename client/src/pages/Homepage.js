@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-
-
+import LazyLoad from "react-lazy-load";
 
 import LoadingPage from './LoadingPage'
 import Header from '../components/Header'
@@ -24,8 +23,8 @@ const Homepage = () => {
       const { data } = await axios.get('/api/projects/')
       console.log(data)
       const filteredData = data.filter((project) => project.on_homepage === '0')
-      setCurrentProjects(filteredData.splice(0,4))
-      console.log(filteredData.splice(0,4))
+      setCurrentProjects(filteredData)
+      console.log(filteredData)
       setLoading(false);
     } catch (err) {
       setErrors(true);
@@ -53,9 +52,13 @@ const Homepage = () => {
           <span>Sorry, we had trouble fetching the data! Please try again later.</span>
           :
           <div className='project__wrapper'>
-              {currentProjects.map(project => (
-                <ProjectContainer key={project.id} project={project} />
-              ))}
+            <LazyLoad>
+              <div>
+                {currentProjects.map(project => (
+                  <ProjectContainer key={project.id} project={project} />
+                ))}
+              </div>
+            </LazyLoad>
           </div>
       }
     </main>
